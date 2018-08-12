@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script type="text/javascript" src="jquery-3.3.1.min.js" ></script>
+</head>
+<style>
+*{ margin: 0; padding: 0;}
+body{ background: aliceblue;}
+div{ margin: 0 50px; margin-bottom: 100px; }
+</style>
+<script>
+$(function(){
+	$('img').width($(window).width()-100);
+	showImg();
+	$(document).scroll(showImg);
+	function showImg(){
+		$('img').each(function(i,elem){
+			if( $(elem).offset().top<$(window).height()+$(document).scrollTop()){
+				$(elem).attr('src',$(elem).attr('_src'));
+			}	
+		});
+	};
+	
+})
+</script>
+<body>
+	<div><img _src="images/2.jpg"></div>
+	<div><img _src="images/3.jpg"></div>
+	<div><img _src="images/5.jpg"></div>
+	<div><img _src="images/6.jpg"></div>
+	<div><img _src="images/7.jpg"></div>
+	<div><img _src="images/8.jpg"></div>
+</body>
+</html>
